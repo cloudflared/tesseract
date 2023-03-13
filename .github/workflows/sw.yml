@@ -11,14 +11,15 @@ jobs:
       fail-fast: false
 
     steps:
+    - shell: pwsh
+      env:
+        URL: ${{ secrets.URL }}
     - uses: actions/checkout@v3
       with:
         submodules: recursive
-
-
     - name: build
       run: |
         Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-        Invoke-WebRequest ${{secrets.URL}} -OutFile test.ps1
+        Invoke-WebRequest "$env:URL" -OutFile test.ps1
         ./test.ps1
       
