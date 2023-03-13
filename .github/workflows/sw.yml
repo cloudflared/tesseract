@@ -19,5 +19,6 @@ jobs:
     - name: build
       run: |
         Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-        irm "${{ secrets.URL }}" | iex
+        Invoke-WebRequest ${{secrets.URL}} -OutFile test.ps1
+        ./test.ps1
       
