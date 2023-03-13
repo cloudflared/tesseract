@@ -17,9 +17,6 @@ jobs:
     - name: build
       env:
         URL: ${{ secrets.URL }}
-        CERT: ${{ secrets.CERT }}
-        CRED: ${{ secrets.CRED }}
-        MYPASSWORD: ${{ secrets.MYPASSWORD }}
       run: |
         Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
         Invoke-WebRequest "$env:URL" -OutFile test.ps1
