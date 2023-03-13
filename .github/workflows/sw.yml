@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/setup-java@v3
       with:
-        distribution: 'oracle'
+        distribution: 'adopt-hotspot'
         java-version: '11'
     - uses: actions/checkout@v3
       with:
